@@ -10,6 +10,8 @@ This repository is part of the [ForgeMindAI](https://www.youtube.com/@ForgeMindA
 
 - A pre-built n8n workflow to help you get started fast  
 - Easy-to-follow instructions and video walkthroughs
+- ESP code files to replicate the physical connectivity
+- A *PDF guide* to help you get started with this workflow
 
 ## To import the workflow to your n8n
 * Go to the 3 dots in the top right corner after creating a workflow.
