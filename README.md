@@ -11,13 +11,9 @@ This repository is part of the [ForgeMindAI](https://www.youtube.com/@ForgeMindA
 - A pre-built n8n workflow to help you get started fast  
 - Easy-to-follow instructions and video walkthroughs
 
-## 🎥 Watch the Tutorial
-
-Check out the full tutorial on the ForgeMindAI YouTube channel: [[YouTube Link Here](https://youtu.be/ZqWQwbzvrac)]
-
 ## To import the workflow to your n8n
 * Go to the 3 dots in the top right corner after creating a workflow.
-* Select import from file and select this file. (Gmail_Classifier.json)
+* Select import from file and select this file. (Office_setup.json)
   ![N8N import](./assets/import_workflow.png)
 
 For any queries on this repo, contact us on the following social handles:
