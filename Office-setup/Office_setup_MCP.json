@@ -1,0 +1,315 @@
+{
+  "name": "Office setup MCP",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "f08e43e9-51bc-40d5-9200-06f54e69fb79"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "247393e7-f542-453a-8b9e-d94ea27a33ce",
+      "name": "MCP Server Trigger",
+      "webhookId": "f08e43e9-51bc-40d5-9200-06f54e69fb79"
+    },
+    {
+      "parameters": {
+        "content": "here,\nBAMBOO_1 is connected to pin 13\n\nBAMBOO_2 is connected to pin 12\n\nBULB is connected to pin 11\n\nFOCUS_LIGHT is connected to pin 14",
+        "height": 240,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        760,
+        100
+      ],
+      "id": "b84e6523-156c-46b7-872c-243a8a4ea3cb",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Remeber change the https link based on current ngrok generated link...",
+        "height": 80,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        140
+      ],
+      "id": "674d7306-bf0b-46f6-909a-6aac9d629703",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "The systems are \nBAMBOO_1\nBAMBOO_2\nBULB\nFOCUS_LIGHT",
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        220
+      ],
+      "id": "675b7c4c-122a-4e54-87c0-3bb089e3a544",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to get the pin states of the electronic devices",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/pin-state",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        340
+      ],
+      "id": "9dfd2b02-df6b-4fe3-abd4-7822a29ccf39",
+      "name": "Get pin states"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to turn on the Bulb Devices",
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=BULB&state=HIGH",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        180
+      ],
+      "id": "49c6c1f7-030a-4160-8f1e-bb80bc265931",
+      "name": "Turn on Bulb pin state"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=BAMBOO_PRINTER&state=HIGH",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        340
+      ],
+      "id": "025b9758-5dbf-48da-b6ae-23681771ba46",
+      "name": "Turn on Bamboo pin state"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=SUPPORT_LIGHT&state=HIGH",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        480
+      ],
+      "id": "b3c1d1b8-015e-4326-88a5-929ac3e462bf",
+      "name": "Turn on Support Light state"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to turn off the electronic devices",
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=BULB&state=LOW",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        540,
+        160
+      ],
+      "id": "4dd6b429-212d-4801-ac18-a089521a91ae",
+      "name": "Turn off Bulb pin state"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to turn off the electronic devices",
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=BAMBOO_PRINTER&state=LOW",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        320
+      ],
+      "id": "01ca2b1a-a672-4937-971c-a77bde43d28d",
+      "name": "Turn off Bamboo pin state"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to turn off the electronic devices",
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=SUPPORT_LIGHT&state=LOW",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        460,
+        480
+      ],
+      "id": "ef153106-d5f6-4ac4-b867-e5240bf1b7de",
+      "name": "Turn off Support Light state"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Call this tool to turn off the electronic devices",
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=KEY_LIGHT&state=LOW",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        620
+      ],
+      "id": "17abf7bc-37f1-482b-ab81-911e2520d21a",
+      "name": "Turn off Key Light state"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://8fa0-2405-201-e01c-b2a8-1c24-bb5-1fd0-8bd6.ngrok-free.app/set-pin?name=KEY_LIGHT&state=HIGH",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -20,
+        600
+      ],
+      "id": "66aef126-2bca-42c1-9ad7-21252f8c70e6",
+      "name": "Turn on Key light state"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get pin states": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn on Bulb pin state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn on Bamboo pin state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn on Support Light state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn off Bulb pin state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn off Bamboo pin state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn off Support Light state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn off Key Light state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn on Key light state": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e301ffa1-1e8f-4519-903f-ac6a97f2c73b",
+  "meta": {
+    "instanceId": "06109140a62dea529b2b0785c44ac542f843e14b83e6c0e2f1925a4b1d6ba673"
+  },
+  "id": "2uZmhnpFeazwPUv1",
+  "tags": []
+}
